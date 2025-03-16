@@ -43,13 +43,14 @@ jobs:
       working-directory: ./front
 
     - name: Upload backend coverage report
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: backend-coverage-report
-        path: back/target/site/jacoco/index.html
+        path: back/target/site/jacoco/
 
     - name: Upload frontend coverage report
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: frontend-coverage-report
         path: front/coverage/
+
