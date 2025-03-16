@@ -30,6 +30,13 @@ jobs:
       with:
         node-version: '16'  
         cache: 'npm'
+        cache-dependency-path: 'front/package-lock.json'
+
+    - name: Check current working directory and list files
+      run: |
+        pwd
+        ls -la
+      working-directory: ./front
 
     - name: Install Node.js dependencies
       run: npm install
