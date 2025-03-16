@@ -28,3 +28,28 @@ jobs:
 
     - name: Run backend tests and generate Jacoco report
       run: mvn test --file back/pom.xml
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '14'  # Adjust the version as needed for your project
+
+    - name: Install Node.js dependencies
+      run: npm install
+      working-directory: ./front
+
+    - name: Run frontend tests and generate coverage report
+      run: npm run test -- --no-watch --no-progress --browsers=ChromeHeadlessCI
+      working-directory: ./front
+
+    - name: Upload backend coverage report
+      uses: actions/upload-artifact@v2
+      with:
+        name: backend-coverage-report
+        path: back/target/site/jacoco/index.html
+
+    - name: Upload frontend coverage report
+      uses: actions/upload-artifact@v2
+      with:
+        name: frontend-coverage-report
+        path: front/coverage/
