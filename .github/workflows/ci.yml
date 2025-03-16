@@ -26,5 +26,5 @@ jobs:
     - name: Build with Maven
       run: mvn -B package --file back/pom.xml
 
-    - name: Run tests
+    - name: Run backend tests and generate Jacoco report
       run: mvn test --file back/pom.xml
