@@ -43,7 +43,7 @@ jobs:
       working-directory: ./front
 
     - name: Run frontend tests and generate coverage report
-      run: npm run test -- --no-watch --no-progress --browsers=ChromeHeadlessCI
+      run: npm run test -- --no-watch --no-progress --browsers=ChromeHeadless
       working-directory: ./front
 
     - name: Upload backend coverage report
