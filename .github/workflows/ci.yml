@@ -22,7 +22,7 @@ jobs:
       run: mvn test --file back/pom.xml
     - name: Build and Push Docker Image for Backend
       run: |
-        docker build -t ${{ secrets.DOCKER_USERNAME }}/backend:${{ github.sha }} -f back/Dockerfile .
+        docker build -t ${{ secrets.DOCKER_USERNAME }}/backend:${{ github.sha }} -f back/Dockerfile back
         echo "${{ secrets.DOCKER_TOKEN }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
         docker push ${{ secrets.DOCKER_USERNAME }}/backend:${{ github.sha }}
 
