@@ -66,6 +66,7 @@ jobs:
           -Dsonar.projectKey=ludovicpeysson9_Gerez-un-projet-collaboratif-en-int-grant-une-demarche-CI-CD
           -Dsonar.host.url=https://sonarcloud.io
           -Dsonar.login=${{ secrets.SONAR_TOKEN }}
+          -Dsonar.java.binaries=back/target/classes
           
   upload-reports:
     needs: [build-backend, build-frontend]
