@@ -22,7 +22,10 @@ jobs:
       run: mvn -B package --file back/pom.xml
       
     - name: Run backend tests and generate Jacoco report
-      run: mvn clean verify --file back/pom.xml
+      run: mvn clean verify jacoco:report --file back/pom.xml
+
+    - name: List files in jacoco report directory
+      run: ls -la back/target/site/jacoco
       
     - name: List files in target/classes directory
       run: ls -l back/target/classes
