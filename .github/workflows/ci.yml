@@ -57,7 +57,7 @@ jobs:
       working-directory: ./front
       
     - name: Run frontend tests and generate coverage report
-      run: npm run test -- --no-watch --no-progress --browsers=ChromeHeadless
+      run: npm run test -- --no-watch --no-progress --browsers=ChromeHeadless --code-coverage
       working-directory: ./front
       
     - name: Build and Push Docker Image for Frontend
