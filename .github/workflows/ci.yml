@@ -105,15 +105,21 @@ jobs:
     needs: [build-backend, build-frontend]
     runs-on: ubuntu-latest
     steps:
+
+      - name: List backend jacoco folder
+        run: ls -la back/target/site/jacoco
     
       - name: Upload backend coverage report
         uses: actions/upload-artifact@v4
         with:
           name: backend-coverage-report
           path: back/target/site/jacoco/
+
+      - name: List frontend coverage folder
+        run: ls -la front/coverage/bobapp
         
       - name: Upload frontend coverage report
         uses: actions/upload-artifact@v4
         with:
           name: frontend-coverage-report
-          path: front/coverage/
+          path: front/coverage/bobapp
