@@ -75,7 +75,37 @@
   - Vulnérabilités : 0
   - Dette Technique (Maintainability) : 71 code smells, estimées à 5 h 38 min  
   - Debt Ratio : 0 %  
-  - Maintainability Rating : A  
+  - Maintainability Rating : A
+
+- ***Analyse du rapport SonarCloud :***
+  - Malgré 71 code smells, la dette technique reste faible (5h38 min). La fiabilité est plus problématique avec 4 bugs ouverts. La sécurité n'a pour le moment pas de vulnéraibilité détectée.
+
+- ***Retours utilisateurs :***
+  - Bug d'envoi de suggestion : un utilisateur signale que le bouton "poster une suggestion" fait planter le navigateur.
+  - Bug sur post de vidéo : signalé il y a deux semaines, toujours pas corrigé selon l'utilisateur.
+  - Notifications manquantes : Un utilisateur dit ne plus recevoir les blauges depuis une semaine.
+  - Abandon de la plateforme : un autre utilisateur indique avoir supprimé le site de ses favoris en raison de bigs répétés.
+
+- ***Problèmes à résoudre en priorité :***
+  1 Améliorer la couverure des tests Backend :
+    - Cibler en particulier model (0%) et service (25%) qui peinent à être couverts
+    - Renforcer les tests d'intégration pour reproduire et corriger les bugs signalés (post vidéo, suggestions).
+      
+  2 Augmenter la couverture des tests Frontend
+    - Approcher l'objectif de 80% en statements, améliorer la couverture des fonctions (57.14%).
+    - Vérifier particulièrement le composant de suggestion de blagues (puisque bug signalé).
+
+  3 Corriger les bugs SonarCloud (Reliability)
+    - Prioriser les 4 bugs détectés pour éviter d'impacter l'expérience utilisateur et la fiabilité globale de l'application.
+
+  4 Répondre aux retours critiques des utilisateurs
+    - Stabilitser la fonctionnalité d'envoi de suggestion (bug critique).
+    - Vérifier la logique de notifications.
+
+### Conclusion ###
+  - Couverture : Les objectifs de 80 % ne sont pas encore atteints, surtout côté backend (~48 %).
+  - Qualité SonarCloud : Note globale de maintenabilité (A) encourageante, mais 4 bugs à adresser rapidement.
+  - Retours Utilisateurs : Les bugs critiques (post de vidéo, suggestions) et la fiabilité des notifications doivent être traités en priorité afin de restaurer la confiance et l’engagement utilisateur.
 
 ## Configuration Supplémentaire
 
