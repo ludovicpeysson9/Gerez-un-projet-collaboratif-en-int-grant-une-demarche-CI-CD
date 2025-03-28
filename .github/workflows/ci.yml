@@ -62,6 +62,12 @@ jobs:
     - name: Run frontend tests and generate coverage report
       run: npm run test -- --no-watch --no-progress --browsers=ChromeHeadless --code-coverage
       working-directory: ./front
+
+    - name: Upload frontend coverage artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: frontend-coverage
+        path: front/coverage
       
     - name: Build and Push Docker Image for Frontend
       run: |
@@ -124,8 +130,14 @@ jobs:
           name: backend-coverage-report
           path: back/target/site/jacoco/
 
+      - name: Download frontend coverage artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: frontend-coverage
+          path: front/coverage
+
       - name: List frontend coverage folder
-        run: ls -la front/coverage/bobapp
+        run: ls -la front/coverage
         
       - name: Upload frontend coverage report
         uses: actions/upload-artifact@v4
