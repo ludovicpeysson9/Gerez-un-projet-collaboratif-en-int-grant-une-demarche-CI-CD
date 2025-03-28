@@ -49,15 +49,33 @@
    - Vulnérabilités : Objectif zéro.
    - Dette technique : Inférieure à 5 jours pour une bonne maintenabilité.
 
-## Analyse des Métriques et Retours Utilisateurs
+## Analyse des Métriques 
 
 - **Couverture Actuelle :**
-  - Backend : XX%
-  - Frontend : YY%
-- **SonarCloud :**
-  - Bugs : Z
-  - Vulnérabilités : W
-  - Dette Technique : V jours
+  - Backend : 
+      - Couverture globale (Instructions) : 48 %
+      - Branches : 50 %
+      - Lines manquées : 28 sur 52 (≈ 46 % de couverture de lignes)
+      - Couverture par package :
+        - com.openclassrooms.bobapp.model : 0 %
+        - com.openclassrooms.bobapp.data : 49 %
+        - com.openclassrooms.bobapp.service : 25 %
+        - com.openclassrooms.bobapp.controller : 54 %
+        - com.openclassrooms.bobapp (package racine) : 37 %
+        - com.openclassrooms.bobapp.config : 100 %
+          
+  - Frontend : 
+      - Statements (instructions) : 78.57 %
+      - Branches : 100 %
+      - Functions : 57.14 %
+      - Lines : 84.61 %
+        
+- **Rapport SonarCloud Actuel :**
+  - Bugs : 4
+  - Vulnérabilités : 0
+  - Dette Technique (Maintainability) : 71 code smells, estimées à 5 h 38 min  
+  - Debt Ratio : 0 %  
+  - Maintainability Rating : A  
 
 ## Configuration Supplémentaire
 
