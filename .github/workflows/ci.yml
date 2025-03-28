@@ -109,9 +109,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
 
+      - name: Download backend target artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: backend-target
+          path: back/target
+          
       - name: List backend jacoco folder
         run: ls -la back/target/site/jacoco
-    
+        
       - name: Upload backend coverage report
         uses: actions/upload-artifact@v4
         with:
