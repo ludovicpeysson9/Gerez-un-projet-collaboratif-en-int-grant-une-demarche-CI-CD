@@ -5,39 +5,49 @@
 ### Build du Backend
 - **Environnement :** Ubuntu Latest avec JDK 11.
 - **Étapes :**
-  - Checkout du code.
-  - Configuration de l'environnement Java.
-  - Construction du projet Maven sans exécuter les tests.
-  - Exécution des tests et génération du rapport Jacoco.
-  - Construction de l'image Docker pour le backend et push sur Docker Hub.
+  - Checkout du code source depuis le dépôt GitHub.
+  - Configuration de Java (JDK 11) avec distribution AdoptOpenJDK.
+  - Build du projet backend avec Maven sans exécuter les tests.
+  - Exécution des tests unitaires backend et génération du rapport de couverture Jacoco (back/target/site/jacoco).
+  - Upload de l'artefact du backend (contenu du dossier back/target).
+  - Build et push de l'image Docker du backend sur Docker Hub avec un tag correspondant au SHA du commit.
 
 ### Build du Frontend
-- **Dépendances :** Dépend du build du backend.
+- **Dépendances :** Ce job démarre après la réussite du build du backend.
 - **Environnement :** Ubuntu Latest avec Node.js 16.
 - **Étapes :**
-  - Checkout du code.
-  - Configuration de l'environnement Node.js.
-  - Installation des dépendances Node.js.
-  - Exécution des tests frontend et génération du rapport de couverture.
-  - Construction de l'image Docker pour le frontend et push sur Docker Hub.
+  - Checkout du code source depuis le dépôt GitHub.
+  - Configuration de l'environnement Node.js (version 16).
+  - Installation des dépendances Node.js définies dans package.json. 
+  - Exécution des tests unitaires frontend via Karma avec Chrome Headless et génération du rapport de couverture (front/coverage).
+  - Upload de l'artefact du frontend (contenu du dossier front/coverage).
+  - Build et push de l'image Docker du frontend sur Docker Hub avec un tag correspondant au SHA du commit.
 
 ### Vérification de la Qualité avec SonarCloud
-- **Dépendances :** Dépend des builds du backend et du frontend.
+- **Dépendances :** Ce job s'exécute après la réussite des builds backend et frontend.
+- **Environnement :** Ubuntu Latest avec JDK 11.
 - **Étapes :**
-  - Configuration de l'environnement Java.
-  - Rebuild du backend pour l'analyse SonarCloud.
-  - Exécution de l'analyse SonarCloud.
+  - Checkout du code source complet (fetch-depth à 0).
+  - Téléchargement de l'artefact backend nécessaire à l'analyse (back/target).
+  - Configuration de l'environnement Java (JDK 11) pour l'analyse SonarCloud.
+  - Analyse SonarCloud exécutée sur le code complet.
 
 ### Upload des Rapports de Couverture
-- **Dépendances :** Dépend des builds du backend et du frontend.
+- **Dépendances :** Ce job démarre après la réussite des builds backend et frontend.
+- **Environnement :** Ubuntu Latest.
 - **Étapes :**
-  - Upload du rapport de couverture du backend sur GitHub.
-  - Upload du rapport de couverture du frontend sur GitHub.
+  - Téléchargement de l'artefact backend (back/target) et frontend (front/coverage). 
+  - Upload des rapports de couverture backend et frontend en tant qu'artefacts sur GitHub :
+      - Backend : Rapport Jacoco (back/target/site/jacoco).  
+      - Frontend : Rapport Karma Coverage (front/coverage).
 
 ## KPIs Proposés
 
-1. **Code Coverage :** La couverture de code doit être au minimum de 80% pour assurer une bonne qualité et maintenabilité du code.
-2. **Nombre de bugs critiques détectés par SonarCloud :** Moins de 5 bugs critiques autorisés pour garantir la fiabilité du code en production.
+1. **Code Coverage :** La couverture de code doit être au minimum de 80% frontend et backend pour assurer une bonne qualité et maintenabilité du code.
+2. **Nombre de bugs critiques détectés par SonarCloud :**
+   - Moins de 5 bugs critiques autorisés pour garantir la fiabilité du code en production.
+   - Vulnérabilités : Objectif zéro.
+   - Dette technique : Inférieure à 5 jours pour une bonne maintenabilité.
 
 ## Analyse des Métriques et Retours Utilisateurs
 
@@ -48,8 +58,6 @@
   - Bugs : Z
   - Vulnérabilités : W
   - Dette Technique : V jours
-
-Les retours des utilisateurs indiquent une amélioration notable de la performance et de la stabilité depuis l'implémentation de CI/CD, mettant en lumière quelques fonctionnalités à améliorer pour la prochaine itération.
 
 ## Configuration Supplémentaire
 
