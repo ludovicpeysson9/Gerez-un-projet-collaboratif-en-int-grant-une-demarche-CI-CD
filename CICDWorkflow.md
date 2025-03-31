@@ -99,7 +99,7 @@
     - Prioriser les 4 bugs détectés pour éviter d'impacter l'expérience utilisateur et la fiabilité globale de l'application.
 
   - 4 Répondre aux retours critiques des utilisateurs
-    - Stabilitser la fonctionnalité d'envoi de suggestion (bug critique).
+    - Stabiliser la fonctionnalité d'envoi de suggestion (bug critique).
     - Vérifier la logique de notifications.
 
 ### Conclusion ###
