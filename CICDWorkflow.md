@@ -83,22 +83,22 @@
 - ***Retours utilisateurs :***
   - Bug d'envoi de suggestion : un utilisateur signale que le bouton "poster une suggestion" fait planter le navigateur.
   - Bug sur post de vidéo : signalé il y a deux semaines, toujours pas corrigé selon l'utilisateur.
-  - Notifications manquantes : Un utilisateur dit ne plus recevoir les blauges depuis une semaine.
-  - Abandon de la plateforme : un autre utilisateur indique avoir supprimé le site de ses favoris en raison de bigs répétés.
+  - Notifications manquantes : Un utilisateur dit ne plus recevoir les blagues depuis une semaine.
+  - Abandon de la plateforme : un autre utilisateur indique avoir supprimé le site de ses favoris en raison de bugs répétés.
 
 - ***Problèmes à résoudre en priorité :***
-  1 Améliorer la couverure des tests Backend :
+  - 1 Améliorer la couverure des tests Backend :
     - Cibler en particulier model (0%) et service (25%) qui peinent à être couverts
     - Renforcer les tests d'intégration pour reproduire et corriger les bugs signalés (post vidéo, suggestions).
       
-  2 Augmenter la couverture des tests Frontend
+  - 2 Augmenter la couverture des tests Frontend
     - Approcher l'objectif de 80% en statements, améliorer la couverture des fonctions (57.14%).
     - Vérifier particulièrement le composant de suggestion de blagues (puisque bug signalé).
 
-  3 Corriger les bugs SonarCloud (Reliability)
+  - 3 Corriger les bugs SonarCloud (Reliability)
     - Prioriser les 4 bugs détectés pour éviter d'impacter l'expérience utilisateur et la fiabilité globale de l'application.
 
-  4 Répondre aux retours critiques des utilisateurs
+  - 4 Répondre aux retours critiques des utilisateurs
     - Stabilitser la fonctionnalité d'envoi de suggestion (bug critique).
     - Vérifier la logique de notifications.
 
